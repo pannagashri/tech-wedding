@@ -9,8 +9,8 @@ Please note that this is a <b>bash script</b> and you should have a Linux termin
 To clone this repository,
    <p>#git clone https://github.com/pannagashri/tech-wedding.git</p>
 
-<p>This should create a local repository called "tech-wedding".
-Change the current working directory to the local repository.
+<p>This should create a local repository called "tech-wedding" on your system.
+Change the current working directory to the local repository created.
 To do this,</p>
    <p>#cd tech-wedding</p>
 

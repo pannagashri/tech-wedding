@@ -6,16 +6,14 @@ location='https://goo.gl/maps/4PMsgLZvqGT2'
 open_in_browser()
 {
 	link=$1
-	#if [ -n $BROWSER ]; then
-		#$BROWSER '$link'
 	if
-		which cygstart > /dev/null; then
+		which cygstart > /dev/null 2>&1; then
 		cygstart "$link"
 	elif
-		which gnome-open > /dev/null; then
+		which gnome-open > /dev/null 2>&1; then
 		gnome-open "$link"
 	elif
-		which xdg-open  > /dev/null; then
+		which xdg-open  > /dev/null 2>&1; then
 		xdg-open "$link"
 	else
 		echo "Can't open browser"
@@ -25,14 +23,12 @@ open_in_browser()
 calculate_days()
 {
 	start_ts=$(date +"%s")
-	#echo $start_ts
 	end_ts=$(date -d "2016-02-25" '+%s')
-	#echo $end_ts
 	diff=$(( ( end_ts - start_ts )/(60*60*24) ))
 }
 
 calculate_days
-#echo $diff
+regex="[09|[1-9]+]"
 
 printf "Hi
 Welcome to Sagar and Pannaga's wedding
@@ -47,11 +43,10 @@ Choose one of the following options:
 8) Get me out of here..!!\n"
 
 read -r option
-#printf "option you entered is $option\n"
 while true;
 do
-	if [ "$option" -eq 1 ];
-	then
+case "$option" in
+1)
 		echo '
  
                  _.!._             
@@ -114,28 +109,24 @@ Food: Yes..! It will be there
 Get ready.'
     printf "\nOnly $diff days left.\nPlease enter another option\n"
     read -r option
-fi
-#done
+;;
 
-if [ "$option" -eq 2 ];
-then
+2)
 	printf "\nThe bride is named Pannagashri and has been teased her entire life about it.\nShe is a techie, avid reader, writer, singer (la la la), and forced to be crazy about fitness by her hubby.\nShe has more words to write about the groom than herself.\n\nSo choose another option already..!\n"
 	read -r option
-fi
+;;
 
-if [ "$option" -eq 3 ];
-then
+3)
 	printf "\nThe groom is named Sagar-the simplest name that can't be made into a nickname at all and has been humiliated by his wife for that.\nHe is a techie, loves gadgets, enjoys playing squash, TT and badminton, has several devices to track his activities and heart rate, extremely social,\nloves his car and sunglasses, has a collection of perfumes and watches and yet gets crazy over a new one.\nHis favourite pastime is irritating his wife for no apparent reason.\nNow that he sees where this description is going, he wants to end it here.\n\nPlease choose another option.\n"
 	read -r option
-fi
+;;
 
-if [ "$option" -eq 4 ];
-then
+4)
 	printf "\nIt all began in the chemistry lab..! That's all we can recall.\n\nNext option please..!\n"
 	read -r option
-fi
+;;
 
-if [ "$option" -eq 5 ]; then
+5)
 	printf "\nYou can find the photo in this link: $url \nDo you want to open it in your browser? yes/no"
 	read -r answer
 	if [ "$answer" == "yes" ]; then
@@ -143,9 +134,9 @@ if [ "$option" -eq 5 ]; then
 	fi
 	echo "Enter another option"
 	read -r option
-fi
+;;
 
-if [ "$option" -eq 6 ]; then
+6)
 	printf "\nVenue: Sri Dharmasthala Manjunatha Kalyana Mantapa\nCity: Bangalore\nLandmark: Near BMS College of Engineering, Bull temple Road, Bangalore\nYou can find this on Google maps here: https://goo.gl/maps/4PMsgLZvqGT2\nDo you want to open this link in your browser?yes/no"
 	read -r answer
 	if [ "$answer" == "yes" ]; then
@@ -153,15 +144,21 @@ if [ "$option" -eq 6 ]; then
 	fi
 	echo "Enter another option"
 	read -r option
-fi
+;;
 
-if [ "$option" -eq 7 ]; then
+7)
 	printf "\nYou could try saying there was a black hole that gulped me down on the way to the wedding\nOr you could say the more logical - too much traffic. Well, when you can reach office in the traffic, you can make it to the wedding too.\nYou are not just invited, you are expected.\nTo exit this invite, just press 8\n"
 	read -r option
-fi
+;;
 
-if [ "$option" -eq 8 ]; then
+8)
 	printf "\nBye..! Hope to see you at the wedding :)\n"
 	break
-fi
+;;
+
+*)
+printf "This is an invalid option\n"
+break
+
+esac
 done
