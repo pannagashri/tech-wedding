@@ -128,7 +128,7 @@ Get ready.'
 5)
 	printf "\nYou can find the photo in this link: $url \nDo you want to open it in your browser? yes/no"
 	read -r answer
-	if [ "$answer" == "yes" ]; then
+	if [ "$answer" = "yes" ]; then
 		open_in_browser $url #insert code to open link in browser
 	fi
 	echo "Enter another option"
@@ -138,7 +138,7 @@ Get ready.'
 6)
 	printf "\nVenue: Sri Dharmasthala Manjunatha Kalyana Mantapa\nCity: Bangalore\nLandmark: Near BMS College of Engineering, Bull temple Road, Bangalore\nYou can find this on Google maps here: https://goo.gl/maps/4PMsgLZvqGT2\nDo you want to open this link in your browser?yes/no"
 	read -r answer
-	if [ "$answer" == "yes" ]; then
+	if [ "$answer" = "yes" ]; then
 		open_in_browser $location
 	fi
 	echo "Enter another option"
