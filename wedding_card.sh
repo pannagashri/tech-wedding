@@ -28,7 +28,6 @@ calculate_days()
 }
 
 calculate_days
-regex="[09|[1-9]+]"
 
 printf "Hi
 Welcome to Sagar and Pannaga's wedding
