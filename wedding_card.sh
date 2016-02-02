@@ -146,7 +146,7 @@ Get ready.'
 ;;
 
 7)
-	printf "\nYou could try saying there was a black hole that gulped me down on the way to the wedding\nOr you could say the more logical - too much traffic. Well, when you can reach office in the traffic, you can make it to the wedding too.\nYou are not just invited, you are expected.\nTo exit this invite, just press 8\n"
+	printf "\nYou could try saying there was too much traffic and you couldn't reach on time.\nI empathize with you. I really do..! But, when you can reach office in the traffic, you can make it to the wedding too.\nYou are not just invited, you are expected.\nTo exit this invite, just press 8\n"
 	read -r option
 ;;
 
